@@ -13,7 +13,7 @@ name = "mere_memory"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-hdi = "0.3.0"
+hdi = "0.2.3-beta-rc.0"
 mere_memory_types = {path = "../mere_memory_types"}
 serde = "1"
 sha2 = "0"

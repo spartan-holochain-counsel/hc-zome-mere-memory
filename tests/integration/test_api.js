@@ -8,9 +8,7 @@ const fs				= require('fs');
 const crypto				= require('crypto');
 const expect				= require('chai').expect;
 const { HoloHash }			= require('@whi/holo-hash');
-const { Holochain,
-	HolochainClientLib }		= require('@whi/holochain-backdrop');
-const { ConductorError }		= HolochainClientLib;
+const { Holochain }			= require('@whi/holochain-backdrop');
 const { CruxConfig }			= require('@whi/crux-payload-parser');
 const json				= require('@whi/json');
 const { expect_reject }			= require('../utils.js');
@@ -126,7 +124,7 @@ function errors_tests () {
 		},
 		"bytes": Array.from(chunk),
 	    });
-	}, ConductorError, "InvalidCommit error: MemoryBlockEntry cannot be larger than 2MB (2,097,152 bytes)" );
+	}, "InvalidCommit error: MemoryBlockEntry cannot be larger than 2MB (2,097,152 bytes)" );
     });
 
     it("should fail to create memory with wrong byte size", async function () {
@@ -146,7 +144,7 @@ function errors_tests () {
 		"block_addresses": [ block_addr ],
 		"memory_size":	65,
 	    });
-	}, ConductorError, "InvalidCommit error: MemoryEntry 'memory_size' does not equal the sum of its blocks" );
+	}, "InvalidCommit error: MemoryEntry 'memory_size' does not equal the sum of its blocks" );
     });
 }
 
