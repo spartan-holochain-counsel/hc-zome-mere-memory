@@ -16,7 +16,7 @@ crate-type = ["cdylib", "rlib"]
 essence_payloads = "0.1"
 mere_memory = {path = "./mere_memory"}
 mere_memory_types = {path = "./mere_memory_types"}
-hdk = "0.2.2-beta-rc.0"
+hdk = "0.2.2-beta-rc.1"
 hex = "0"
 serde = "1"
 thiserror = "1"
