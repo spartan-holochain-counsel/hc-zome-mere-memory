@@ -4,12 +4,16 @@
   inputs = {
     nixpkgs.follows = "holochain-flake/nixpkgs";
     flake-parts.follows = "holochain-flake/flake-parts";
-    holochain-nix-versions.url  = "github:holochain/holochain/?dir=versions/0_2";
+    holochain-nix-versions.url  = "github:holochain/holochain?dir=versions/0_2";
+
+    # ideally don't use the overrides as it decreases the chances of getting a cached results
+    # and the versions set should only contain compatible releases
+    # holochain-nix-versions.inputs.holochain.url = "github:holochain/holochain/holochain-0.2.2";
+    # holochain-nix-versions.inputs.lair.url = "github:holochain/lair/lair_keystore-v0.3.0";
 
     holochain-flake = {
       url = "github:holochain/holochain";
-      inputs.holochain.url = "github:holochain/holochain/holochain-0.2.2";
-      inputs.lair.url = "github:holochain/lair/lair_keystore-v0.3.0";
+      inputs.versions.follows = "holochain-nix-versions";
     };
   };
 
