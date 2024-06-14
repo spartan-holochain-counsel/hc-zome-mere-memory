@@ -65,8 +65,8 @@ describe("Large Memory", () => {
 
 
 function basic_tests () {
-    const repetitions			= 35;
     const bytes				= fs.readFileSync( MEMORY_PATH );
+    const repetitions			= Math.floor( 64e6 / bytes.length );
     const too_big_bytes			= new Uint8Array( bytes.length * repetitions );
 
     // Create an byte array 100 * the normal bytes (approx. 200mb)

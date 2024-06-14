@@ -99,14 +99,14 @@ test-docs:
 build-docs:			test-docs
 	cd mere_memory_types; cargo doc
 
-PRE_HDI_VERSION = hdi = "0.4.0-beta-dev.34"
-NEW_HDI_VERSION = hdi = "0.4.0-beta-dev.36"
+PRE_HDI_VERSION = hdi = "0.4.0-beta-dev.36"
+NEW_HDI_VERSION = hdi = "0.4.1"
 
-PRE_HDK_VERSION = hdk = "0.3.0-beta-dev.38"
-NEW_HDK_VERSION = hdk = "0.3.0-beta-dev.41"
+PRE_HDK_VERSION = hdk = "0.3.0-beta-dev.41"
+NEW_HDK_VERSION = hdk = "0.3.1"
 
-PRE_HH_VERSION = version = "0.3.0-beta-dev.24"
-NEW_HH_VERSION = version = "0.3.0-beta-dev.26"
+PRE_HH_VERSION = version = "0.3.0-beta-dev.28"
+NEW_HH_VERSION = version = "0.3.1"
 
 GG_REPLACE_LOCATIONS = ':(exclude)*.lock' Cargo.toml mere_memory_types/ mere_memory/
 

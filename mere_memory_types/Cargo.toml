@@ -13,8 +13,8 @@ name = "mere_memory_types"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-hdi = "0.4.0-beta-dev.36"
+hdi = "0.4.1"
 serde = "1"
 
 [dev-dependencies]
-holo_hash = { version = "0.3.0-beta-dev.28", features = ["encoding"] }
+holo_hash = { version = "0.3.1", features = ["encoding"] }
