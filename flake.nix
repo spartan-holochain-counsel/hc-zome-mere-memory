@@ -8,30 +8,23 @@
 
     holochain-flake = {
       url = "github:holochain/holochain";
-      inputs.holochain.url = "github:holochain/holochain/holochain-0.4.0-dev.1";
+      inputs.holochain.url = "github:holochain/holochain/holochain-0.4.0-dev.2";
       inputs.lair.url = "github:holochain/lair/lair_keystore-v0.4.4";
     };
   };
 
   outputs = inputs @ { ... }:
-    inputs.holochain-flake.inputs.flake-parts.lib.mkFlake
-      {
-        inherit inputs;
-      }
-      {
-        systems = builtins.attrNames inputs.holochain-flake.devShells;
-        perSystem =
-          { config
-          , pkgs
-          , system
-          , ...
-          }: {
-            devShells.default = pkgs.mkShell {
-              inputsFrom = [ inputs.holochain-flake.devShells.${system}.holonix ];
-              packages = with pkgs; [
-                nodejs-18_x
-              ];
-            };
-          };
+    inputs.holochain-flake.inputs.flake-parts.lib.mkFlake {
+      inherit inputs;
+    } {
+      systems = builtins.attrNames inputs.holochain-flake.devShells;
+      perSystem = { config, pkgs, system, ... }: {
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [ inputs.holochain-flake.devShells.${system}.holonix ];
+          packages = with pkgs; [
+            nodejs_20
+          ];
+        };
       };
+    };
 }
