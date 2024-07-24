@@ -896,9 +896,9 @@ checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 
 [[package]]
 name = "hdi"
-version = "0.5.0-dev.9"
+version = "0.5.0-dev.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "496fab25a7da57d4473ec3afd676c097fa6b1e579e7f97cf7ccfe409b391f079"
+checksum = "9dd62de0d29f215642cb2481ec5cdde81233c3fabe97157c8a35118b69dd821d"
 dependencies = [
  "getrandom",
  "hdk_derive",
