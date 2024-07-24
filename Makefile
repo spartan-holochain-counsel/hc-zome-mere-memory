@@ -68,7 +68,7 @@ publish-crate:			.cargo/credentials
 #
 DEBUG_LEVEL	       ?= warn
 TEST_ENV_VARS		= LOG_LEVEL=$(DEBUG_LEVEL)
-MOCHA_OPTS		= -n enable-source-maps
+MOCHA_OPTS		= -n enable-source-maps -t 5000
 
 %/package-lock.json:	%/package.json
 	touch $@

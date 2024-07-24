@@ -2,7 +2,7 @@
 name = "mere_memory"
 version = "0.0.0"
 authors = ["Matthew Brisebois <matthew.brisebois@holo.host>"]
-edition = "2018"
+edition = "2021"
 license = "CAL-1.0"
 repository = "https://github.com/spartan-holochain-counsel/hc-zome-mere-memory"
 description = ""

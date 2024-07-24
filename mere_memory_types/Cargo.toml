@@ -2,7 +2,7 @@
 name = "mere_memory_types"
 version = "0.95.0"
 authors = ["Matthew Brisebois <matthew.brisebois@holo.host>"]
-edition = "2018"
+edition = "2021"
 license = "CAL-1.0"
 repository = "https://github.com/spartan-holochain-counsel/hc-zome-mere-memory"
 description = "A Holochain Zome for storing large or small byte values"
