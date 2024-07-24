@@ -762,9 +762,9 @@ checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 
 [[package]]
 name = "hdi"
-version = "0.5.0-dev.3"
+version = "0.5.0-dev.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "31da12c723669c9e2acd63e44649e14004f76dcb9cbf404164b207bf9c44eb2d"
+checksum = "cb73158c410eeb6b5b172c00b057ff916f1805a665aac75739ea541b5fc0c5ab"
 dependencies = [
  "getrandom",
  "hdk_derive",
@@ -818,7 +818,7 @@ checksum = "80b84303db38ecc1c5a3b5334b3da34201cf04dc231b37e7fda01e418e160089"
 dependencies = [
  "holochain_serialized_bytes",
  "holochain_util",
- "holochain_wasmer_common 0.0.94",
+ "holochain_wasmer_common",
  "kitsune_p2p_dht_arc",
  "serde",
  "serde_bytes",
@@ -893,20 +893,6 @@ dependencies = [
 
 [[package]]
 name = "holochain_wasmer_common"
-version = "0.0.93"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e77c4d54b5bf86dfa0266588d43fc913b0442799f34c8fc04b0e8eda0260bd4"
-dependencies = [
- "holochain_serialized_bytes",
- "serde",
- "serde_bytes",
- "test-fuzz",
- "thiserror",
- "wasmer",
-]
-
-[[package]]
-name = "holochain_wasmer_common"
 version = "0.0.94"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c9f7d17668e4a4997b5e121c7a951ea9606331ef206b991f1e81420c84d98485"
@@ -921,12 +907,12 @@ dependencies = [
 
 [[package]]
 name = "holochain_wasmer_guest"
-version = "0.0.93"
+version = "0.0.94"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10fcb10d7d455c5222a13b2343e2a438bcbbf3f97ef79f16c9e01203f6616dd0"
+checksum = "e292e12fda0716ce36b566c7cf3dad8443fdc7c56950e42c5a3ba81988e792d0"
 dependencies = [
  "holochain_serialized_bytes",
- "holochain_wasmer_common 0.0.93",
+ "holochain_wasmer_common",
  "parking_lot",
  "paste",
  "serde",

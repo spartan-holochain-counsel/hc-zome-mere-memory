@@ -15,5 +15,5 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 mere_memory = {path = "./mere_memory"}
 mere_memory_types = {path = "./mere_memory_types"}
-hdk = "=0.4.0-dev.3"
+hdk = "=0.4.0-dev.4"
 serde = "1"
