@@ -102,8 +102,8 @@ build-docs:			test-docs
 PRE_HDI_VERSION = hdi = "=0.5.0-dev.4"
 NEW_HDI_VERSION = hdi = "=0.5.0-dev.5"
 
-PRE_HDK_VERSION = hdk = "=0.4.0-dev.4"
-NEW_HDK_VERSION = hdk = "=0.4.0-dev.5"
+PRE_HDK_VERSION = hdk = "=0.4.0-dev.5"
+NEW_HDK_VERSION = hdk = "=0.4.0-dev.6"
 
 PRE_HH_VERSION = version = "=0.4.0-dev.4"
 NEW_HH_VERSION = version = "=0.4.0-dev.5"

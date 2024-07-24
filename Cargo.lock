@@ -819,9 +819,9 @@ dependencies = [
 
 [[package]]
 name = "hdk"
-version = "0.4.0-dev.5"
+version = "0.4.0-dev.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e2b35d367893ab9cf93f37806bb3234a8c0799bb7016e8b5110f4221d78b262"
+checksum = "d3e4a4ac76aadc261e2a513f8ffb345504a7d667d3a02f65f349b801c4aaa33e"
 dependencies = [
  "getrandom",
  "hdi",
