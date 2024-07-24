@@ -5,8 +5,8 @@
     nixpkgs.follows = "holochain-flake/nixpkgs";
     holochain-flake = {
       url = "github:holochain/holochain";
-      inputs.holochain.url = "github:holochain/holochain/holochain-0.4.0-dev.7";
-      inputs.lair.url = "github:holochain/lair/lair_keystore-v0.4.4";
+      inputs.holochain.url = "github:holochain/holochain/holochain-0.4.0-dev.8";
+      inputs.lair.url = "github:holochain/lair/lair_keystore-v0.4.5";
     };
   };
 
