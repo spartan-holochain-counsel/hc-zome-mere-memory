@@ -25,13 +25,11 @@ CSR_SOURCE_FILES	= $(INT_SOURCE_FILES) \
 #
 # Project
 #
-rust_comile_fix:
-	touch crates/mere_memory_types/src/lib.rs # force rebuild otherwise rust fails
+.PHONY: FORCE wasm dna app
+wasm:				$(MERE_MEMORY_WASM) $(MERE_MEMORY_CSR_WASM)
+dna:				$(STORAGE_DNA)
+app:				$(STORAGE_APP)
 
-zomes:
-	mkdir $@
-$(MERE_MEMORY_WASM):
-$(MERE_MEMORY_CSR_WASM):
 zomes/%.wasm:			$(TARGET_DIR)/%.wasm
 	@echo -e "\x1b[38;2mCopying WASM ($<) to 'zomes' directory: $@\x1b[0m"; \
 	cp $< $@
@@ -52,9 +50,9 @@ $(TARGET_DIR)/%_csr.wasm:	zomes $(CSR_SOURCE_FILES)
 	    --package $*_csr
 	@touch $@ # Cargo must have a cache somewhere because it doesn't update the file time
 
-$(STORAGE_DNA):			tests/dna/dna.yaml $(MERE_MEMORY_WASM) $(MERE_MEMORY_CSR_WASM)
+$(STORAGE_DNA):			tests/dna/dna.yaml wasm
 	hc dna pack -o $@ $$(dirname $<)
-$(STORAGE_APP):			tests/app/happ.yaml $(STORAGE_DNA)
+$(STORAGE_APP):			tests/app/happ.yaml dna
 	hc app pack -o $@ $$(dirname $<)
 
 npm-reinstall-local:
@@ -92,7 +90,6 @@ publish-crate:			.cargo/credentials
 	cp ~/$@ $@
 
 
-
 #
 # Testing
 #
@@ -111,8 +108,12 @@ node_modules:		package-lock.json
 	cd $*; npm install
 	touch $@
 
+.PHONY: build rebuild test test-integration test-integration-basic test-integration-large-memory
 # 'build' target used by workflow
-build:			$(CORE_WASM) $(MERE_MEMORY_WASM)
+build:			wasm
+rebuild:
+	touch crates/mere_memory_types/src/lib.rs # force rebuild otherwise rust fails
+
 test:
 	make -s test-integration
 
@@ -189,3 +190,16 @@ create-zomelets-package:	clean-files prepare-zomelets-package
 publish-zomelets-package:	clean-files prepare-zomelets-package
 	DEBUG_LEVEL=trace make -s test
 	cd zomelets; npm publish --access public .
+
+
+#
+# Environment
+#
+#    Start up Nix development environment and build a target, eg. make nix-build
+#
+nix-%:
+	@if [ -r flake.nix ]; then \
+	    nix develop $(NIX_OPTS) --command make $*; \
+        else \
+	    nix-shell $(NIX_OPTS) --run "make $*"; \
+	fi
